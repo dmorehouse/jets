@@ -24,6 +24,7 @@ module Jets
 
     # Makes remote call to the Lambda function.
     def warm(function_name)
+      puts "Calling warm for function: '#{function_name.inspect}'"
       Jets::Commands::Call.new(function_name, '{"_prewarm": "1"}', @options).run unless Jets.env.test?
     end
 
